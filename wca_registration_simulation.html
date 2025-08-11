@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCA Registration Simulation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f9f9f9;
+    }
+    .step-header {
+        display: flex;
+        gap: 40px;
+        font-size: 18px;
+    }
+    .active {
+        color: #d35400;
+        font-weight: bold;
+    }
+    .inactive {
+        color: #aaa;
+    }
+    .box {
+        margin-top: 20px;
+        background-color: #fefefe;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #90ee90;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s ease;
+    }
+    button:disabled {
+        background-color: #c1eac1;
+        cursor: not-allowed;
+    }
+</style>
+</head>
+<body>
+
+<div class="step-header">
+    <div class="active">1 Requirements</div>
+    <div class="inactive">2 Register</div>
+    <div class="inactive">3 Payment information</div>
+</div>
+
+<div class="box">
+    <label>
+        <input type="checkbox" id="agreeBox">
+        I have read and acknowledged all information under the 'Register' tab, 
+        including entry fees, refund policies, and any extra requirements listed above.
+    </label>
+    <br>
+    <button id="continueBtn" disabled>Continue to next Step</button>
+</div>
+
+<script>
+    const checkbox = document.getElementById('agreeBox');
+    const button = document.getElementById('continueBtn');
+
+    checkbox.addEventListener('change', () => {
+        button.disabled = !checkbox.checked;
+    });
+
+    button.addEventListener('click', () => {
+        alert("✅ You can now proceed to Step 2!");
+    });
+</script>
+
+</body>
+</html>
